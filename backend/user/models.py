@@ -5,7 +5,6 @@ from django.db import models
 GENDER_CHOICES = [
     ['male', 'Male'],
     ['female', 'Female'],
-
 ]
 
 class Customer(models.Model):
@@ -13,7 +12,7 @@ class Customer(models.Model):
     image = models.ImageField('customer/images/')
     liked_songs = models.ManyToManyField('song.Song', related_name='liked_songs', blank=True)
     liked_playlists = models.ManyToManyField('song.Playlist', related_name='liked_playlists', blank=True)
-    followed_artist = models.ManyToManyField('Artist', related_name='followed_artists', blank=True)
+    followed_artists = models.ManyToManyField('Artist', related_name='followed_artist', blank=True)
     birth_date = models.DateField()
     gender = models.CharField( max_length =20,choices = GENDER_CHOICES)
     updated = models.DateField(auto_now = True)
